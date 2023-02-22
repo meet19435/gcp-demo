@@ -4,9 +4,9 @@ import requests
 
 app = Flask(__name__, static_folder="assets", template_folder="templates")
 
-# @app.route("/")
-# def k():
-# 	return render_template("index.html")
+@app.route("/")
+def k():
+	return render_template("index.html")
 
 # @app.route("/<a>")
 # def k1(a):
@@ -27,9 +27,9 @@ app = Flask(__name__, static_folder="assets", template_folder="templates")
 # def k4(Exception):
 # 	return render_template("err_5.html")
 
-@app.route("/")
-def homePage():
-	return "<h1>Hello World</h1>"
+# @app.route("/")
+# def homePage():
+# 	return "<h1>Hello World</h1>"
 
 if __name__ == '__main__':
 	app.run(host = "0.0.0.0",port = 8080)
