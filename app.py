@@ -8,10 +8,10 @@ app = Flask(__name__, static_folder="assets", template_folder="templates")
 def k():
 	return render_template("index.html")
 
-# @app.route("/<a>")
-# def k1(a):
-# 	t=a+".html"
-# 	return render_template(t)
+@app.route("/<a>")
+def k1(a):
+	t=a+".html"
+	return render_template(t)
 
 # @app.route("/submit",methods=["POST"])
 # def k2():
