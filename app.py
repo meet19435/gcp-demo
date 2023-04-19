@@ -47,8 +47,8 @@ def k2():
 		with pool.connect() as db_conn:
 			db_conn.execute(insert_stmt, parameters={"_name": name, "email":email, "phonenumber": phonenumber,"message":message})
 			db_conn.commit()
-	except:
-		print("Error Occured")
+	except Exception as e:
+		print(e)
 	
 	return render_template("contact.html")
 
