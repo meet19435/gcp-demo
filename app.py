@@ -1,7 +1,5 @@
 from flask import*
 from flask import render_template
-import requests
-import mysql.connector
 from google.cloud.sql.connector import Connector,IPTypes
 import sqlalchemy
 
@@ -44,10 +42,10 @@ def k2():
 		"mysql+pymysql://",
 		creator=getconn,)
 		insert_stmt = sqlalchemy.text(
-      "INSERT INTO INFO (name, email, phonenumber,message) VALUES (:name, :email, :phonenumber,:message)",
+      "INSERT INTO INFO (_name, email, phonenumber,message) VALUES (:_name, :email, :phonenumber,:message)",
   		)	
 		with pool.connect() as db_conn:
-			db_conn.execute(insert_stmt, parameters={"name": name, "email":email, "phonenumber": phonenumber,"message":message})
+			db_conn.execute(insert_stmt, parameters={"_name": name, "email":email, "phonenumber": phonenumber,"message":message})
 			db_conn.commit()
 	except:
 		print("Error Occured")
